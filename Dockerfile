@@ -14,6 +14,9 @@ rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
+# Set the locale.
+RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf 
+
 # Install requirements.
 RUN zypper refresh \
  && zypper install -y \
