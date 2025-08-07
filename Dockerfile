@@ -1,5 +1,5 @@
-FROM opensuse/leap:15
-LABEL maintainer="Jeff Geerling"
+FROM registry.opensuse.org/home/x86-39/opensuse/leap/16.0/images/images/opensuse/leap:16.0
+LABEL maintainer="Jasmijn Emilia Rosalina Knoope"
 ENV container=docker
 
 ENV pip_packages "ansible"
@@ -32,9 +32,6 @@ RUN pip3 install --upgrade pip
 
 # Install Ansible via Pip.
 RUN pip3 install $pip_packages
-
-# Disable requiretty.
-RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
 # Install Ansible inventory file.
 RUN mkdir -p /etc/ansible
